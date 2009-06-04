@@ -1,6 +1,10 @@
 Package: sfit
 =============
 
+Version: 0.1.8 [2008-05-09]
+o Removed obsolete SaveImage from DESCRIPTION.
+
+
 Version: 0.1.7 [2008-08-31]
 o Added drawApex() and radials() for class cfit. 
 o Renames old HISTORY file to NEWS.
