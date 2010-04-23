@@ -35,7 +35,7 @@
   \item{retX}{If \code{\link[base:logical]{TRUE}}, an estimate of \code{X} is returned,
     otherwise not.}
   \item{cfit}{Shell command to call the 'cfit' executable.}
-  \item{verbose}{}
+  \item{verbose}{If \code{\link[base:logical]{TRUE}}, verbose output is displayed, otherwise not.}
 }
 
 \value{

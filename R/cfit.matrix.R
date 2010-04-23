@@ -25,7 +25,7 @@
 #   \item{retX}{If @TRUE, an estimate of \code{X} is returned, 
 #     otherwise not.}
 #   \item{cfit}{Shell command to call the 'cfit' executable.}
-#   \item{verbose}{}
+#   \item{verbose}{If @TRUE, verbose output is displayed, otherwise not.}
 # }
 #
 # \value{
@@ -247,6 +247,8 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
 
 ###########################################################################
 # HISTORY:
+# 2010-04-23
+# o Added Rd help to argument 'verbose' of cfit() for the matrix class.
 # 2008-02-14
 # o Added more verbose output.
 # o Added some validation that the temporary data was written.

@@ -1,6 +1,10 @@
 Package: sfit
 =============
 
+Version: 0.1.9 [2010-04-23]
+o Added Rd help to argument 'verbose' of cfit() for the matrix class.
+
+
 Version: 0.1.8 [2008-05-09]
 o Removed obsolete SaveImage from DESCRIPTION.
 
