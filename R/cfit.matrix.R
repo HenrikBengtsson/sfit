@@ -81,9 +81,9 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
 
   # Argument 'cfit'
   if (is.null(cfit)) {
+    warning("Argument 'cfit' is NULL. Fallback is to use cfit=\"cfit\" and rely on the operating system to locate that binary, which may fail.");
     cfit <- "cfit";
   }
-
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   # Setup the arguments passed to the external 'cfit' software
@@ -247,6 +247,11 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
 
 ###########################################################################
 # HISTORY:
+# 2011-05-15
+# o ROBUSTNESS: If argument 'cfit' of cfit() is NULL, which happens if
+#   the 'cfit' option is not set, then cfit() will generate a warning
+#   explaining that it will rely on the operating system to find the
+#   "cfit" binary, which may not work.
 # 2010-04-23
 # o Added Rd help to argument 'verbose' of cfit() for the matrix class.
 # 2008-02-14

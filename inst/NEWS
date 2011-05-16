@@ -1,6 +1,26 @@
 Package: sfit
 =============
 
+Version: 0.2.0 [2011-05-15]
+o ROBUSTNESS: If argument 'cfit' of cfit() is NULL, which happens if
+  the 'cfit' option is not set, then cfit() will generate a warning
+  explaining that it will rely on the operating system to find the
+  "cfit" binary, which may not work.
+o BUILD CLEANUP: Removed warning reporting on an uninitialized 'f'
+  when building executable 'cli'.  This warning was unharmful
+  and the "fix" makes no difference.
+o BUILD BUG FIX: The makefiles for building package binaries assumed
+  that a directory ../incl/bin/ existed.  Starting with R v2.13.0,
+  empty ("skeleton") directories are automatically dropped (already
+  when building the *.tar.gz), which caused error "`../inst/bin/': 
+  No such file or directory" during the binary builds.
+o BUG FIX: If the 'cfit' binary had a comma in its path, cfit() would,
+  if on Windows, throw an error reporting that the command "is not
+  recognized as an internal or external command, operable program or
+  batch file". Now such commas are escaped if on Windows.  See source
+  code of findCfitBinary() for all details.
+
+
 Version: 0.1.9 [2010-04-23]
 o Added Rd help to argument 'verbose' of cfit() for the matrix class.
 

@@ -85,7 +85,7 @@ int cmpR_asc ( const void *a, const void *b )
 
 int main( int argc, char *argv[] )
 {
-  int c; char *p; FILE *f;
+  int c; char *p; FILE *f = NULL;
   R lb, ub; /* lower and upper bound of box constraints */
   int option_lubox = 0;
   int iu, io; /* length of proj.transform related vectors in file */

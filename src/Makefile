@@ -4,6 +4,7 @@ PKG_CFLAGS = -Wall -O3
 
 all: cfit
 	cp cfit dummy.so
+	mkdir -p ../inst/bin/
 	mv cfit ../inst/bin/
 
 cfit: cfit.o spa.o cli.c spa.h
@@ -19,6 +20,8 @@ clean:
 
 ######################################################################
 # HISTORY:
+# 2011-05-15
+# o Now ../inst/bin/ is created, in case it's missing.
 # 2006-12-05
 # o Update to make use of CC, CFLAGS and PKG_CFLAGS.
 # 2006-05-20
