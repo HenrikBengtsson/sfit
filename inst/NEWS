@@ -1,6 +1,10 @@
 Package: sfit
 =============
 
+Version: 0.2.1 [2012-03-23]
+o Now package uses packageStartupMessage() instead of cat() when loaded.
+
+
 Version: 0.2.0 [2011-05-15]
 o ROBUSTNESS: If argument 'cfit' of cfit() is NULL, which happens if
   the 'cfit' option is not set, then cfit() will generate a warning
