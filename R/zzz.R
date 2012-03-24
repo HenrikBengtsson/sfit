@@ -4,7 +4,6 @@
 
 
 .onAttach <- function(libname, pkgname) {
-## .First.lib <- function(libname, pkgname) {
   pkg <- utils::packageDescription(pkgname);
 
   findCfitBinary(pkgname=pkgname);
