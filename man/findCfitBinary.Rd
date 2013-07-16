@@ -16,7 +16,9 @@
   Located the cfit binary and sets option 'cfit'.
 }
 
-\usage{\method{findCfitBinary}{default}(pkgname="sfit", force=FALSE, ...)}
+\usage{
+\method{findCfitBinary}{default}(pkgname="sfit", force=FALSE, ...)
+}
 
 \arguments{
   \item{pkgname}{A \code{\link[base]{character}} string specifying the name of the

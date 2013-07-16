@@ -34,7 +34,8 @@ plot(X, xlab=xlab, ylab=ylab, xlim=lim, ylim=lim)
 points(Z, col="blue")
 points(Y, col="red")
 
-legend("topright", pch=19, pt.cex=2, legend=c("X", "Z", "Y"), col=c("black", "blue", "red"), title="Variables:", bg="#eeeeee")
+legend("topright", pch=19, pt.cex=2, legend=c("X", "Z", "Y"),
+       col=c("black", "blue", "red"), title="Variables:", bg="#eeeeee")
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -58,7 +59,8 @@ for (kk in seq(along=qs)) {
   text(M, cex=0.8, labels=kk)
 }
 
-legend("topright", pch=19, pt.cex=2, legend=sprintf("(%d,%d)", qs, Qs), col=col, title="(q,Q):", bg="#eeeeee")
+legend("topright", pch=19, pt.cex=2, legend=sprintf("(%d,%d)", qs, Qs),
+       col=col, title="(q,Q):", bg="#eeeeee")
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -82,7 +84,8 @@ for (kk in seq(along=qs)) {
   text(M, cex=0.8, labels=kk)
 }
 
-legend("topright", pch=19, pt.cex=2, legend=sprintf("(%d,%d)", qs, Qs), col=col, title="(q,Q):", bg="#eeeeee")
+legend("topright", pch=19, pt.cex=2, legend=sprintf("(%d,%d)", qs, Qs)
+       col=col, title="(q,Q):", bg="#eeeeee")
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -106,5 +109,6 @@ for (kk in seq(along=qs)) {
   text(M, cex=0.8, labels=kk)
 }
 
-legend("topright", pch=19, pt.cex=2, legend=sprintf("(%d,%d)", qs, Qs), col=col, title="(q,Q):", bg="#eeeeee")
+legend("topright", pch=19, pt.cex=2, legend=sprintf("(%d,%d)", qs, Qs),
+       col=col, title="(q,Q):", bg="#eeeeee")
 

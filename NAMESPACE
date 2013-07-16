@@ -1,3 +1,22 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# EXPORTS
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Export all public methods, that is, those without a preceeding dot
 # in their names.
 exportPattern("^[^\\.]")
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# DECLARATIONS
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Matrix methods
+S3method("cfit", "matrix")
+
+# cfit methods
+S3method("points", "cfit")
+S3method("drawApex", "cfit")
+S3method("getEdges", "cfit")
+S3method("lines", "cfit")
+S3method("lines3d", "cfit")
+S3method("points3d", "cfit")
+S3method("radials", "cfit")

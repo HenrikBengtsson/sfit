@@ -17,7 +17,8 @@ cols <- rainbow(length(Ms))
 cols[length(Ms)] <- "blue";
 
 for (view in 1:4) {
-  plot3d(Y[,1:3], pch=".", xlab="dye 1", ylab="dye 2", zlab="dye 3", phi=phi[view], theta=theta[view], box=FALSE)
+  plot3d(Y[,1:3], pch=".", xlab="dye 1", ylab="dye 2", zlab="dye 3", 
+         phi=phi[view], theta=theta[view], box=FALSE)
     
   for (iter in seq(Ms)) {
     M <- Ms[[iter]]

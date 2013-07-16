@@ -9,8 +9,6 @@
 
 \name{cfit.matrix}
 \alias{cfit.matrix}
-\alias{cfit.matrix}
-
 
 \title{Fits a K-dimensional simplex in M dimensions}
 
@@ -20,7 +18,10 @@
   triangle.
 }
 
-\usage{\method{cfit}{matrix}(y, k=ncol(y) + 1, dump=1, chopless=NULL, chopmore=NULL, maxiter=NULL, ..., retX=FALSE, cfit=getOption("cfit"), verbose=FALSE)}
+\usage{
+\method{cfit}{matrix}(y, k=ncol(y) + 1, dump=1, chopless=NULL, chopmore=NULL, maxiter=NULL, ...,
+  retX=FALSE, cfit=getOption("cfit"), verbose=FALSE)
+}
 
 \arguments{
   \item{y}{Matrix or data frame of size IxN containing I rows of
@@ -93,7 +94,8 @@ plot(X, xlab=xlab, ylab=ylab, xlim=lim, ylim=lim)
 points(Z, col="blue")
 points(Y, col="red")
 
-legend("topright", pch=19, pt.cex=2, legend=c("X", "Z", "Y"), col=c("black", "blue", "red"), title="Variables:", bg="#eeeeee")
+legend("topright", pch=19, pt.cex=2, legend=c("X", "Z", "Y"),
+       col=c("black", "blue", "red"), title="Variables:", bg="#eeeeee")
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -114,7 +116,8 @@ for (kk in seq(along=Ms)) {
   text(M, cex=0.8, labels=kk)
 }
 
-legend("topright", pch=19, pt.cex=2, legend=c(alpha, "final"), col=col, title=expression(alpha), bg="#eeeeee")
+legend("topright", pch=19, pt.cex=2, legend=c(alpha, "final"),
+       col=col, title=expression(alpha), bg="#eeeeee")
 
 apex <- which.min(apply(M, MARGIN=1, FUN=function(u) sum(u^2)))
 a0hat <- M[apex,]

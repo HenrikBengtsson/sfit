@@ -1,6 +1,12 @@
 Package: sfit
 =============
 
+Version: 0.2.2 [2012-07-16]
+o Now declaring S3 methods in NAMESPACE.
+o CRAN POLICY: Now all Rd example lines are at most 100 characters long.
+o Added an Authors@R field to DESCRIPTION.
+
+
 Version: 0.2.1 [2012-03-23]
 o Now package uses packageStartupMessage() instead of cat() when loaded.
 

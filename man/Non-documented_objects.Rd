@@ -35,7 +35,7 @@
   Most of the are to be documented.
 }
 
-\author{Henrik Bengtsson (\url{http://www.braju.com/R/})}
+\author{Pratyaksha Wirapati, Henrik Bengtsson}
 
 
 \keyword{documentation}
