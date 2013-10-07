@@ -1,4 +1,12 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# IMPORTS
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+importFrom("R.methodsS3", "setMethodS3")
+importFrom("R.methodsS3", "throw")
+importFrom("R.methodsS3", "pkgStartupMessage")
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # EXPORTS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Export all public methods, that is, those without a preceeding dot

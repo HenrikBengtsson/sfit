@@ -8,13 +8,15 @@
 
   findCfitBinary(pkgname=pkgname);
 
-  packageStartupMessage(pkgname, " v", pkg$Version, " (", pkg$Date, ")",
+  pkgStartupMessage(pkgname, " v", pkg$Version, " (", pkg$Date, ")",
       " successfully loaded. See ?", pkgname, " for help.\n", sep="");
 }
 
 
 ###########################################################################
 # HISTORY:
+# 2012-10-07
+# o Now utilizing pkgStartupMessage() of R.methodsS3.
 # 2012-03-23
 # o Now .onAttach() uses packageStartupMessage() instead of cat().
 # 2011-05-15

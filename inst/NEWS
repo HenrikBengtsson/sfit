@@ -1,6 +1,12 @@
 Package: sfit
 =============
 
+Version: 0.3.0 [2012-10-07]
+o CLEANUP: Now library("sfit", quietly=TRUE) attaches the package
+  completely silently without any output message.
+o CLEANUP: Now only importing 'R.methodsS3' (no longer attaching it).
+
+
 Version: 0.2.2 [2012-07-16]
 o Now declaring S3 methods in NAMESPACE.
 o CRAN POLICY: Now all Rd example lines are at most 100 characters long.
