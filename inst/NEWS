@@ -5,6 +5,7 @@ Version: 0.3.0 [2012-10-07]
 o CLEANUP: Now library("sfit", quietly=TRUE) attaches the package
   completely silently without any output message.
 o CLEANUP: Now only importing 'R.methodsS3' (no longer attaching it).
+o BUG FIX: Now declaring all S3 methods in NAMESPACE.
 
 
 Version: 0.2.2 [2012-07-16]
@@ -28,7 +29,7 @@ o BUILD CLEANUP: Removed warning reporting on an uninitialized 'f'
 o BUILD BUG FIX: The makefiles for building package binaries assumed
   that a directory ../incl/bin/ existed.  Starting with R v2.13.0,
   empty ("skeleton") directories are automatically dropped (already
-  when building the *.tar.gz), which caused error "`../inst/bin/': 
+  when building the *.tar.gz), which caused error "`../inst/bin/':
   No such file or directory" during the binary builds.
 o BUG FIX: If the 'cfit' binary had a comma in its path, cfit() would,
   if on Windows, throw an error reporting that the command "is not
@@ -46,7 +47,7 @@ o Removed obsolete SaveImage from DESCRIPTION.
 
 
 Version: 0.1.7 [2008-08-31]
-o Added drawApex() and radials() for class cfit. 
+o Added drawApex() and radials() for class cfit.
 o Renames old HISTORY file to NEWS.
 
 
@@ -65,13 +66,13 @@ o Package pass R CMD check R v2.6.0.
 
 
 Version: 0.1.3 [2007-05-20]
-o WORKAROUND: On some Unix systems, cfit() would give output 
+o WORKAROUND: On some Unix systems, cfit() would give output
   "sh: cfit: command not found".  This is because the sh shell
-  has not be setup to identify executable in the current 
+  has not be setup to identify executable in the current
   directory, i.e. they have to be called with "./cfit", but that
   does not work on Windows.  Instead, the cfit() is now calling
   pipe() with the absolute pathname to the cfit executable within
-  quotation marks (to avoid problems with spaces) in the command 
+  quotation marks (to avoid problems with spaces) in the command
   string.
 
 
@@ -80,7 +81,7 @@ o Updated the help pages.
 
 
 Version: 0.1.1 [2006-05-20]
-o First version of the package where the cfit binary is automatically 
+o First version of the package where the cfit binary is automatically
   build upon R CMD INSTALL.  It is still no shared library that is
   build, i.e. the approach to dump data to file, call 'cfit', and then
   let R parse the cfit result is still used.  But at least it should
