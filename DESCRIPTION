@@ -8,7 +8,7 @@ Authors@R: c(
   person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
                                email = "henrikb@braju.com"),
   person("Pratyaksha", "Wirapati", role=c("aut", "cph")))
-Author: Pratyaksha Wirapati, Henrik Bengtsson
+Author: Henrik Bengtsson [aut, cre, cph], Pratyaksha Wirapati [aut, cph]
 Maintainer: Henrik Bengtsson <henrikb@braju.com>
 Description: This package provides a method for robustly fitting a K-dimensional simplex in M dimensions.
 License: LGPL (>= 2.1)
