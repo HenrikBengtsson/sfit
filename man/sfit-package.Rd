@@ -18,10 +18,6 @@
   This package provides a method for robustly fitting a K-dimensional simplex in M dimensions..
 }
 
-\section{Requirements}{
-  This package requires the package \pkg{R.oo}.
-}
-
 \section{Installation and updates}{
 
   To install this package, see \url{http://www.braju.com/R/}.
@@ -30,7 +26,7 @@
 \section{To get started}{
   To get started, see:
   \enumerate{
-    \item \code{\link{cfit.matrix}}() - To fit a K-dimensional simplex in an
+    \item \code{\link{cfit}}() - To fit a K-dimensional simplex in an
        N-dimensional space.
   }
 }

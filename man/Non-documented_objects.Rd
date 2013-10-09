@@ -12,7 +12,6 @@
 
 
 % Main methods:
-\alias{cfit}
 
 % Plot methods:
 \alias{getEdges}

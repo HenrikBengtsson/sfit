@@ -1,19 +1,21 @@
 #########################################################################/**
-# @set "class=matrix"
-# @RdocMethod cfit
+# @RdocGeneric cfit
+# @alias cfit.matrix
 #
 # @title "Fits a K-dimensional simplex in M dimensions"
 #
 # \description{
-#   @get "title".  
+#   @get "title".
 #   A K-dimensional simplex is the K-dimensional generalization of a
 #   triangle.
 # }
 #
-# @synopsis
+# \usage{
+# @usage cfit,matrix
+# }
 #
 # \arguments{
-#   \item{y}{Matrix or data frame of size IxN containing I rows of 
+#   \item{y}{Matrix or data frame of size IxN containing I rows of
 #     vectors in \eqn{R^N}.}
 #   \item{k}{The number of vertices of the fitted simplex. By default, the
 #     number of vertices is equal to the number of dimension (N) + 1.}
@@ -22,7 +24,7 @@
 #     which extreme data points are assigned zero weights.}
 #   \item{maxiter}{"maximum number of REX steps". Default value is 60.}
 #   \item{...}{Named argument passed to the external 'cfit' program.}
-#   \item{retX}{If @TRUE, an estimate of \code{X} is returned, 
+#   \item{retX}{If @TRUE, an estimate of \code{X} is returned,
 #     otherwise not.}
 #   \item{cfit}{Shell command to call the 'cfit' executable.}
 #   \item{verbose}{If @TRUE, verbose output is displayed, otherwise not.}
@@ -37,7 +39,7 @@
 #
 # \details{
 #   Let \eqn{Y=(y_1, \ldots, y_I)} where \eqn{y_i=(y_{i1},\ldots,y_{iN})}
-#   is an observation in \eqn{N} dimensions.  
+#   is an observation in \eqn{N} dimensions.
 #   Let \eqn{M=(\mu_1,\ldots,\mu_K)} be the \eqn{K}-dimensional simplex
 #   where \eqn{mu_k} is a vertex in \eqn{N} dimensions.
 #   Let \eqn{X=(x_1,\ldots,X_I)} where \eqn{x_i=(x_{i1},\ldots,x_{iN})}.
@@ -51,17 +53,17 @@
 # \examples{@include "..\incl\cfit.Rex"}
 #
 # \author{
-#   Algorithm and C code/binary by Pratyaksha J. Wirapati, 
+#   Algorithm and C code/binary by Pratyaksha J. Wirapati,
 #   \email{wirapati@wehi.edu.au}.
 #   R wrapper by Henrik Bengtsson, \email{hb@maths.lth.se}.
 # }
 #
 # \references{
 #  [1] P. Wirapati, & T. Speed, \emph{Fitting polyhedrial cones and
-#     simplices to multivariate data points}, Walter and Eliza Hall Institute 
+#     simplices to multivariate data points}, Walter and Eliza Hall Institute
 #     of Medical Research, December 30, 2001.\cr
-#  [2] P. Wirapati and T. Speed, \emph{An algorithm to fit a simplex 
-#     to a set of multidimensional points}, Walter and Eliza Hall Institute 
+#  [2] P. Wirapati and T. Speed, \emph{An algorithm to fit a simplex
+#     to a set of multidimensional points}, Walter and Eliza Hall Institute
 #     of Medical Research, January 15, 2002.\cr
 # }
 #
@@ -227,18 +229,18 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
       l <- list();
       for (i in 1:length(M)) {
         offset <- (i-1)*nrow(y);
-  
+
         tmp <- X[offset+1:nrow(y),];
         l <- c(l, list(tmp));
       }
-      X <- l; 
+      X <- l;
     }
   } else {
     class(M) <- "cfit";
   }
 
   fit <- list(M=M);
-  if (retX) 
+  if (retX)
     fit$X <- X;
 
   fit;
@@ -247,6 +249,8 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
 
 ###########################################################################
 # HISTORY:
+# 2013-10-08
+# o Now the help page is for the generic.
 # 2011-05-15
 # o ROBUSTNESS: If argument 'cfit' of cfit() is NULL, which happens if
 #   the 'cfit' option is not set, then cfit() will generate a warning
@@ -258,7 +262,7 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
 # o Added more verbose output.
 # o Added some validation that the temporary data was written.
 # 2007-05-20
-# o WORKAROUND: Now the 'cfit' executable is called by its absolute 
+# o WORKAROUND: Now the 'cfit' executable is called by its absolute
 #   pathname. To avoid problems with spaces in the pathname, the command
 #   should be put within qoutation marks (as in zzz.R). Some Unix setups
 #   would not recognize the command 'cfit' even if it was in the current

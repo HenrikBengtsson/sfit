@@ -1,13 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Do not modify this file since it was automatically generated from:
 % 
-%  cfit.matrix.R
+%  cfit.R
 % 
 % by the Rdoc compiler part of the R.oo package.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\name{cfit}
+\alias{cfit}
 
-\name{cfit.matrix}
 \alias{cfit.matrix}
 
 \title{Fits a K-dimensional simplex in M dimensions}
