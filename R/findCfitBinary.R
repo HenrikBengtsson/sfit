@@ -1,5 +1,5 @@
 #########################################################################/**
-# @RdocDefault findCfitBinary
+# @RdocFunction findCfitBinary
 #
 # @title "Located the cfit binary"
 #
@@ -12,6 +12,7 @@
 # \arguments{
 #   \item{pkgname}{A @character string specifying the name of the
 #     package to be searched.}
+#   \item{quote}{If @FALSE, the returned string is not quoted.}
 #   \item{force}{If @FALSE and a previously located binary exists,
 #     then it is used.}
 #   \item{...}{Not used.}
@@ -23,10 +24,14 @@
 #
 # @keyword internal
 #*/#########################################################################
-setMethodS3("findCfitBinary", "default", function(pkgname="sfit", force=FALSE, ...) {
+findCfitBinary <- function(pkgname="sfit", quote=TRUE, force=FALSE, ...) {
   # Already located?
   cmd <- getOption("cfit");
   if (!force && !is.null(cmd)) {
+    if (!quote) {
+      cmd <- gsub("^\"", "", cmd);
+      cmd <- gsub("\"$", "", cmd);
+    }
     return(invisible(cmd));
   }
 
@@ -55,11 +60,11 @@ setMethodS3("findCfitBinary", "default", function(pkgname="sfit", force=FALSE, .
   # Special cases?
   if (onWindows) {
     # If on Windows, and there are commas in the pathname, those
-    # needs to be escaped.  Details: cfit.matrix() uses pipe(cmd) 
-    # which in turn uses shell().  On Windows commas in shell 
+    # needs to be escaped.  Details: cfit.matrix() uses pipe(cmd)
+    # which in turn uses shell().  On Windows commas in shell
     # commands has a special meaning and needs to be escaped
     # using '^' [1].
-    # REFERENCES: 
+    # REFERENCES:
     # [1] Command shell overview, Microsoft, 2011-05-15
     #     http://technet.microsoft.com/en-us/library/cc737438(WS.10).aspx
     pathname <- gsub(",", "^,", pathname, fixed=TRUE);
@@ -70,13 +75,21 @@ setMethodS3("findCfitBinary", "default", function(pkgname="sfit", force=FALSE, .
   cmd <- sprintf("\"%s\"", pathname);
   options("cfit"=cmd);
 
+  if (!quote) {
+    cmd <- gsub("^\"", "", cmd);
+    cmd <- gsub("\"$", "", cmd);
+  }
+
   # Return the located pathname
   invisible(cmd);
-}, private=TRUE) # findCfitBinary()
+} # findCfitBinary()
 
 
 ###########################################################################
 # HISTORY:
+# 2013-10-08
+# o Turned into a plain function.
+# o Added argument 'quote' to findCfitBinary().
 # 2011-05-15
 # o Now commas in the located pathname are escape if on Windows.
 # o Created from zzz.R.  Previous history below.

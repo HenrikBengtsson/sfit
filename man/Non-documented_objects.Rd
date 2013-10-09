@@ -11,8 +11,6 @@
 \title{Non-documented objects}
 
 
-% Main methods:
-
 % Plot methods:
 \alias{getEdges}
 \alias{getEdges.cfit}
@@ -26,6 +24,10 @@
 \alias{radials.cfit}
 \alias{drawApex}
 \alias{drawApex.cfit}
+
+% Misc methods:
+\alias{cfitOptions}
+\alias{cfitTests}
 
 \description{
   This page contains aliases for all "non-documented" objects that

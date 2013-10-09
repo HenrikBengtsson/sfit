@@ -7,8 +7,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \name{findCfitBinary}
-\alias{findCfitBinary.default}
 \alias{findCfitBinary}
+
 
 \title{Located the cfit binary}
 
@@ -17,12 +17,13 @@
 }
 
 \usage{
-\method{findCfitBinary}{default}(pkgname="sfit", force=FALSE, ...)
+findCfitBinary(pkgname="sfit", quote=TRUE, force=FALSE, ...)
 }
 
 \arguments{
   \item{pkgname}{A \code{\link[base]{character}} string specifying the name of the
     package to be searched.}
+  \item{quote}{If \code{\link[base:logical]{FALSE}}, the returned string is not quoted.}
   \item{force}{If \code{\link[base:logical]{FALSE}} and a previously located binary exists,
     then it is used.}
   \item{...}{Not used.}
