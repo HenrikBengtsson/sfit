@@ -28,13 +28,13 @@
 #   (see @see "base::connections") and parses the output files from 'cfit'.
 #   Ideally, we would link the cfit code to R via \code{.Call()} (see
 #   @see "base::Foreign"), but that is for the future.  The current
-#   solutions has been verified to work on both Windows XP, Linux and OSX.
+#   solutions has been verified to work on Windows XP, Linux and OSX.
 # }
 #
 # \author{
 #   The algorithm and its C source code implementation is work
-#   of Pratyaksha Wirapati (now at ISREC, Lousanne).
-#   The R wrapper is work of Henrik Bengtsson (\url{http://www.braju.com/R/}).
+#   of Pratyaksha Wirapati.
+#   The R wrapper is work of Henrik Bengtsson.
 # }
 #
 # \references{

@@ -149,9 +149,8 @@ abline(a=0, b=1, lwd=2)
 }
 
 \author{
-  Algorithm and C code/binary by Pratyaksha J. Wirapati,
-  \email{wirapati@wehi.edu.au}.
-  R wrapper by Henrik Bengtsson, \email{hb@maths.lth.se}.
+  Algorithm and C code/binary by Pratyaksha J. Wirapati.
+  R wrapper by Henrik Bengtsson.
 }
 
 \references{
