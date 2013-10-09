@@ -76,7 +76,7 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
     throw("Argument 'k' (number of simplex vertices) is not numeric: ", k);
   }
 
-  if (k <= 0 || k %% 1 != 0) {
+  if (k <= 0 || k %% 1 != 0L) {
     throw("Argument 'k' (number of simplex vertices) must be a positive integer: ", k);
   }
 
@@ -109,7 +109,7 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
   #  dump mode (0 none, 1 final, 2 each alpha, 3 each REX)
   if (!is.numeric(dump))
     stop("Argument 'dump' is not numeric.");
-  if (dump < 0 || dump > 3)
+  if (dump < 0L || dump > 3L)
     stop(paste("Argument 'dump' must be between 0 and 3: ", dump, sep=""));
   args <- paste(args, "--dump", dump);
 
@@ -139,8 +139,8 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
   }
 
   args0 <- list(...);
-  if (length(args0) > 0) {
-    ndashes <- sapply(nchar(names(args0)), FUN=min, 2);
+  if (length(args0) > 0L) {
+    ndashes <- sapply(nchar(names(args0)), FUN=min, 2L);
     names(args0) <- paste(c("-", "--")[ndashes], names(args0), sep="");
     args0 <- lapply(args0, FUN=function(values) {
       values <- paste(values, collapse=",");
@@ -169,12 +169,12 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
     rows <- intersect(seq(length=n), 1:5);
     print(bfr[rows]);
     cat("Last 5 lines of temporary data file:\n");
-    rows <- intersect(seq(length=n), (n-4):n);
+    rows <- intersect(seq(length=n), (n-4L):n);
     print(bfr[rows]);
     rm(bfr, n, rows);
   }
 
-  if (is.na(fi$size) || fi$size == 0) {
+  if (is.na(fi$size) || fi$size == 0L) {
     t <- capture.output(print(fi));
     throw("Cannot fit simplex: Failed to write the temporary data file: ", t);
   }
@@ -203,22 +203,22 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
   }
 
   # Parse results
-  colClasses <- rep("double", k-1);
+  colClasses <- rep("double", times=k-1L);
   M <- read.table(file=con, colClasses=colClasses, quote="", comment.char="");
   M <- as.matrix(M);
 
   if (retX) {
-    colClasses <- rep("double", ncol(y));
+    colClasses <- rep("double", times=ncol(y));
     X <- read.table(fileX, colClasses=colClasses, quote="", comment.char="");
     X <- as.matrix(X);
   }
 
-  if (dump == 2) {
+  if (dump == 2L) {
     l <- list();
     for (i in 1:(nrow(M)/k)) {
-      offset <- (i-1)*k;
+      offset <- (i-1L)*k;
 
-      tmp <- M[offset+1:k,];
+      tmp <- M[offset + 1:k,];
       class(tmp) <- "cfit";
       l <- c(l, list(tmp));
     }
@@ -227,9 +227,9 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
     if (retX) {
       l <- list();
       for (i in 1:length(M)) {
-        offset <- (i-1)*nrow(y);
+        offset <- (i-1L)*nrow(y);
 
-        tmp <- X[offset+1:nrow(y),];
+        tmp <- X[offset + 1:nrow(y),];
         l <- c(l, list(tmp));
       }
       X <- l;

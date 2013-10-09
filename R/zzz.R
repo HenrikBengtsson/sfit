@@ -2,12 +2,12 @@
 # conflicts() in R base.
 .conflicts.OK <- TRUE
 
+.onLoad <- function(libname, pkgname) {
+  findCfitBinary(pkgname=pkgname);
+}
 
 .onAttach <- function(libname, pkgname) {
   pkg <- utils::packageDescription(pkgname);
-
-  findCfitBinary(pkgname=pkgname);
-
   pkgStartupMessage(pkgname, " v", pkg$Version, " (", pkg$Date, ")",
       " successfully loaded. See ?", pkgname, " for help.\n", sep="");
 }
