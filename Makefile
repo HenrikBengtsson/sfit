@@ -43,7 +43,7 @@ DIR_VIGNS := $(wildcard vignettes inst/doc)
 # R MACROS
 R = R
 R_SCRIPT = Rscript
-R_HOME := $(shell echo "$(R_HOME)" | tr "\\\\" "/")
+R_HOME := $(shell $(R_SCRIPT) -e "cat(R.home())")
 
 ## R_USE_CRAN := $(shell $(R_SCRIPT) -e "cat(Sys.getenv('R_USE_CRAN', 'FALSE'))")
 R_NO_INIT := --no-init-file
@@ -57,13 +57,14 @@ R_OUTDIR := ../_R-$(R_VERSION_FULL)
 ## R_BUILD_OPTS := $(R_BUILD_OPTS) --no-build-vignettes
 R_CHECK_OUTDIR := $(R_OUTDIR)/$(PKG_NAME).Rcheck
 _R_CHECK_CRAN_INCOMING_ = $(shell $(R_SCRIPT) -e "cat(Sys.getenv('_R_CHECK_CRAN_INCOMING_', 'FALSE'))")
-_R_CHECK_XREFS_REPOSITORIES_ = $(shell if $(_R_CHECK_CRAN_INCOMING_) = "TRUE"; then echo ""; else echo "invalidURL"; fi)
+_R_CHECK_XREFS_REPOSITORIES_ = $(shell if test "$(_R_CHECK_CRAN_INCOMING_)" = "TRUE"; then echo ""; else echo "invalidURL"; fi)
 _R_CHECK_FULL_ = $(shell $(R_SCRIPT) -e "cat(Sys.getenv('_R_CHECK_FULL_', ''))")
-R_CHECK_OPTS = --as-cran --timings
+R_CHECK_OPTS = --as-cran --timings $(shell if test "$(_R_CHECK_USE_VALGRIND_)" = "TRUE"; then echo "--use-valgrind"; fi)
 R_RD4PDF = $(shell $(R_SCRIPT) -e "if (getRversion() < 3) cat('times,hyper')")
 R_CRAN_OUTDIR := $(R_OUTDIR)/$(PKG_NAME)_$(PKG_VERSION).CRAN
 
-HAS_ASPELL := $(shell $(R_SCRIPT) -e "cat(Sys.getenv('HAS_ASPELL', !is.na(utils:::aspell_find_program('aspell'))))")
+HAS_ASPELL := $(shell $(R_SCRIPT) -e "cat(Sys.getenv('HAS_ASPELL', !inherits(try(aspell('DESCRIPTION', control=c('--master=en_US', '--add-extra-dicts=en_GB'), dictionaries='en_stats', program='aspell'), silent=TRUE), 'try-error')))")
+
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -178,7 +179,7 @@ build_fast: $(PKG_FILES)
 	$(MKDIR) $(R_OUTDIR)
 	$(RM) $@
 	$(CD) $(R_OUTDIR);\
-	$(R) $(R_NO_INIT) CMD build --no-build-vignettes --no-manual --no-resave-data $(R_BUILD_OPTS) $(PKG_DIR)
+	$(R) $(R_NO_INIT) CMD build --keep-empty-dirs --no-build-vignettes --no-manual --no-resave-data --compact-vignettes="no" $(R_BUILD_OPTS) $(PKG_DIR)
 
 build: $(R_OUTDIR)/$(PKG_TARBALL)
 
@@ -220,11 +221,17 @@ $(R_CHECK_OUTDIR)/.check.complete: $(R_OUTDIR)/$(PKG_TARBALL) build_fix
 
 check: $(R_CHECK_OUTDIR)/.check.complete
 
-
 check_force:
 	$(RM) -r $(R_CHECK_OUTDIR)
 	$(MAKE) check
 
+clang:
+	clang -c -pedantic -I$(R_HOME)/include/ src/*.c
+	$(RM) *.o
+
+valgrind:
+	export _R_CHECK_USE_VALGRIND_=TRUE;\
+	$(MAKE) check_force
 
 # Check the line width of incl/*.(R|Rex) files [max 100 chars in R devel]
 check_Rex:
