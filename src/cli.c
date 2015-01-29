@@ -194,8 +194,11 @@ int main( int argc, char *argv[] )
           { fprintf(stderr,"error specifying frobratio\n"); exit(1); }
         break;
       case 'C':
-        C->constraints = strtol(optarg,&p,10);
-        if( !p || C->constraints < 0 || C->constraints > 3 )
+        /* strtol() returns a (signed) 'long int'.  It is compiler
+           specific what 'enum' is, but it can be represented as
+           an integer, so we play it safe and don't assume anything. */
+        C->constraints = (unsigned int)strtol(optarg,&p,10);
+        if( !p || (signed int)C->constraints < 0 || C->constraints > 3 )
           { fprintf(stderr,"error specifying constraints\n"); exit(1); }
         switch ( C->constraints )
           {
