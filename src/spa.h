@@ -896,7 +896,7 @@ static inline void
 ApuvT_B ( int n, int m, R **A, R *u, R *v, R **B )
 {
   R *a, *b; int i, j;
-  for ( a = A[1], b = B[i], i = 1; i <= n; i++, a += m, b += m )
+  for ( i = 1, a = A[1], b = B[i]; i <= n; i++, a += m, b += m )
     for ( j = 1; j <= m; j++ )
       b[j] = a[j] + u[i] * v[j];
 }
@@ -914,7 +914,7 @@ static inline void
 AmuvT_B ( int n, int m, R **A, R *u, R *v, R **B )
 {
   R *a, *b; int i, j;
-  for ( a = A[1], b = B[i], i = 1; i <= n; i++, a += m, b += m )
+  for ( i = 1, a = A[1], b = B[i]; i <= n; i++, a += m, b += m )
     for ( j = 1; j <= m; j++ )
       b[j] = a[j] - u[i] * v[j];
 }
