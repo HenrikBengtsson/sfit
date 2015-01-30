@@ -1,6 +1,11 @@
 Package: sfit
 =============
 
+Version: 0.3.0-9000 [2015-01-29]
+o ROBUSTNESS: Removed some clang compiler warnings and a harmless 
+  bug in a part of the C code that was never used by this package.
+
+
 Version: 0.3.0 [2012-10-07]
 o Now sfit::cfit() works (without having to attach the package).
 o CLEANUP: Now library("sfit", quietly=TRUE) attaches the package
