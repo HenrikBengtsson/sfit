@@ -4,7 +4,7 @@ setMethodS3("lines", "cfit", function(x, dim=c(1,2), ...) {
 
   u <- getEdges(object);
 
-  for (ii in seq(u)) {
+  for (ii in seq(along=u)) {
     xy <- u[[ii]][,dim];
     lines(xy, ...);
   }
