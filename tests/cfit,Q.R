@@ -49,7 +49,7 @@ Qs <- 100-c(0, 1, 2, 5, 10, 25)
 qs <- rep(2, times=length(Qs))
 col <- terrain.colors(length(qs))
 fits <- list()
-for (kk in seq(along=qs)) {
+for (kk in seq_along(qs)) {
   q <- qs[kk]
   Q <- Qs[kk]
   fit <- cfit(Y, q=q, Q=Q)

@@ -166,10 +166,10 @@ setMethodS3("cfit", "matrix", function(y, k=ncol(y)+1, dump=1, chopless=NULL, ch
     n <- length(bfr);
     cat("Number of lines: ", n, "\n");
     cat("First 5 lines of temporary data file:\n");
-    rows <- intersect(seq(length=n), 1:5);
+    rows <- intersect(seq_len(n), 1:5);
     print(bfr[rows]);
     cat("Last 5 lines of temporary data file:\n");
-    rows <- intersect(seq(length=n), (n-4L):n);
+    rows <- intersect(seq_len(n), (n-4L):n);
     print(bfr[rows]);
     rm(bfr, n, rows);
   }

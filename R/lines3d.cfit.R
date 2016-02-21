@@ -1,7 +1,7 @@
 setMethodS3("lines3d", "cfit", function(object, dim=c(1,2,3), ...) {
   u <- getEdges(object);
 
-  for (ii in seq(along=u)) {
+  for (ii in seq_along(u)) {
     xyz <- u[[ii]][,dim];
     lines3d(xyz, ...);
   }
