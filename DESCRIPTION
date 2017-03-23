@@ -10,9 +10,10 @@ Authors@R: c(
   person("Pratyaksha", "Wirapati", role=c("aut", "cph")))
 Author: Henrik Bengtsson [aut, cre, cph], Pratyaksha Wirapati [aut, cph]
 Maintainer: Henrik Bengtsson <henrikb@braju.com>
-Description: This package provides a method for robustly fitting a K-dimensional simplex in M dimensions.
+Description: Methods for robustly fitting a K-dimensional simplex in M dimensions.
 License: LGPL (>= 2.1)
 LazyLoad: yes
 ByteCompile: TRUE
 URL: https://github.com/HenrikBengtsson/sfit
 BugReports: https://github.com/HenrikBengtsson/sfit/issues
+RoxygenNote: 6.0.1
