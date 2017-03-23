@@ -4,6 +4,9 @@
 importFrom("R.methodsS3", "setMethodS3")
 importFrom("R.methodsS3", "throw")
 importFrom("R.methodsS3", "pkgStartupMessage")
+importFrom("grDevices", "dev.off")
+importFrom("graphics", "lines", "par", "points")
+importFrom("utils", "capture.output", "example", "read.table", "str", "write.table")
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

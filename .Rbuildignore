@@ -1,3 +1,32 @@
+#----------------------------
+# Git and SVN related
+#----------------------------
+^.svn
+^.git
+^.make
+INSTALL[.]md
+OVERVIEW[.]md
+README[.]md
+CONDUCT[.]md
+
+#----------------------------
+# devtools
+#----------------------------
+^revdep
+
+#----------------------------
+# Travis-CI et al.
+#----------------------------
+^[.]travis[.]yml$
+^travis-tool[.]sh$
+^pkg-build[.]sh$
+^appveyor[.]yml$
+
+#----------------------------
+# R related
+#----------------------------
+Rplots.pdf$
+^cran-comments[.].*$
 ^vignettes/.*[.](pdf|PDF)$
 ^vignettes/.*[.](r|R)$
 ^vignettes/[.]install_extras$
@@ -5,9 +34,22 @@
 ^incl
 ^NAMESPACE,.*[.]txt$
 ^nohup.*$
-^.travis.yml$
-^.svn
-^.git
-^.check
-^.test
-README.md
+^[.]R
+^[.]benchmark
+^[.]devel
+^[.]test
+^[.]check
+^.*[.]tar[.]gz$
+
+#----------------------------
+# Package specific
+#----------------------------
+^[.]BatchJobs[.]R$
+[.]future
+
+#----------------------------
+# Miscellaneous
+#----------------------------
+^.ghi
+^.issues
+

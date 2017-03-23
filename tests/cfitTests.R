@@ -1,0 +1,2 @@
+library("sfit")
+cfitTests()

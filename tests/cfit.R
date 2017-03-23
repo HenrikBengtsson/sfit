@@ -51,7 +51,7 @@ col[length(Ms)] <- "red"
 
 plot(Y, cex=0.8, xlab=xlab, ylab=ylab, xlim=lim, ylim=lim, main="Y")
 
-for (kk in seq(along=Ms)) {
+for (kk in seq_along(Ms)) {
   M <- Ms[[kk]]
   points(M, pch=19, cex=2.5, col=col[kk])
   lines(M, col=col[kk], lwd=2)

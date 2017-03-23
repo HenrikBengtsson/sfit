@@ -1,15 +1,21 @@
 Package: sfit
-Version: 0.3.0
-Depends: R (>= 2.3.0)
-Imports: R.methodsS3 (>= 1.5.2)
-Date: 2013-10-07
-Title: Multidimensional simplex fitting
+Version: 0.3.1
+Depends:
+  R (>= 2.3.0)
+Imports:
+  R.methodsS3 (>= 1.6.1)
+Date: 2017-03-23
+Title: Multidimensional Simplex Fitting
 Authors@R: c(
   person("Henrik", "Bengtsson", role=c("aut", "cre", "cph"),
                                email = "henrikb@braju.com"),
   person("Pratyaksha", "Wirapati", role=c("aut", "cph")))
 Author: Henrik Bengtsson [aut, cre, cph], Pratyaksha Wirapati [aut, cph]
 Maintainer: Henrik Bengtsson <henrikb@braju.com>
-Description: This package provides a method for robustly fitting a K-dimensional simplex in M dimensions.
+Description: Methods for robustly fitting a K-dimensional simplex in M dimensions.
 License: LGPL (>= 2.1)
 LazyLoad: yes
+ByteCompile: TRUE
+URL: https://github.com/HenrikBengtsson/sfit
+BugReports: https://github.com/HenrikBengtsson/sfit/issues
+RoxygenNote: 6.0.1

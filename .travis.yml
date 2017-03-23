@@ -1,35 +1,42 @@
-# travis config, based on https://github.com/craigcitro/r-travis
+#----------------------------------------------------------------
+# Travis-CI configuration for R packages
+#
+# REFERENCES:
+# * Travis CI: https://docs.travis-ci.com/user/languages/r
+# * covr: https://github.com/jimhester/covr
+#
+# Validate your .travis.yml file at http://lint.travis-ci.org/
+#----------------------------------------------------------------
+language: r
+sudo: false
+cache: packages
+warnings_are_errors: false
+r_check_args: --as-cran
+latex: false
 
-language: c
-
-env:
-  global:
-    - R_BUILD_ARGS="--no-build-vignettes --no-manual"
-    - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
-    - BOOTSTRAP_LATEX=""
-##    - R_BUILD_ARGS="--no-manual"
-##    - R_CHECK_ARGS="--no-manual --as-cran"
-##    - BOOTSTRAP_LATEX="true"
-
-script: ./travis-tool.sh run_tests
+matrix:
+  include:
+    - os: linux
+      r: oldrel
+    - os: linux
+      r: release
+      r_github_packages:
+        - jimhester/covr
+      after_success:
+        - Rscript -e 'covr::codecov(quiet=FALSE)'
+      env: NB='w/ covr' ## Just a label
+    - os: linux
+      r: devel
+    - os: osx
+      r: oldrel
+    - os: osx
+      r: release
 
 before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-##  - (cd /tmp && curl -OL http://mirrors.ctan.org/macros/latex/contrib/xcolor.zip && cd /usr/share/texmf/tex/latex && sudo unzip /tmp/xcolor.zip && cd xcolor && sudo latex xcolor.ins && sudo texhash)
+  - Rscript -e 'c(physical = parallel::detectCores(logical = FALSE), logical = parallel::detectCores())'
 
-install:
-#  - ./travis-tool.sh github_package testthat
-#  - ./travis-tool.sh github_package assertthat
-#  - ./travis-tool.sh install_r_binary r.methodss3
-  - ./travis-tool.sh install_deps
-
-branches:
-  except:
-   - /-expt$/
 
 notifications:
   email:
-    on_success: travis_report@aroma-project.org
-    on_failure: travis_report@aroma-project.org
+    on_success: change
+    on_failure: change

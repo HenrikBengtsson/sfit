@@ -261,7 +261,7 @@ void cf_nn ( int k, int m, R **M, R **Mnext, void *param)
 {
   int i;
   for ( i = 1; i <= k*m; i++ )
-    if( Mnext[i] < 0 ) Mnext[i] = 0; 
+    if( *Mnext[i] < 0.0 ) *Mnext[i] = 0.0;
 }
 
 /* we assume the parameters are pointers to 2 m-vectors
