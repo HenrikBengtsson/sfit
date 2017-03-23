@@ -4,7 +4,15 @@
 ^.svn
 ^.git
 ^.make
+INSTALL[.]md
+OVERVIEW[.]md
 README[.]md
+CONDUCT[.]md
+
+#----------------------------
+# devtools
+#----------------------------
+^revdep
 
 #----------------------------
 # Travis-CI et al.
@@ -13,12 +21,11 @@ README[.]md
 ^travis-tool[.]sh$
 ^pkg-build[.]sh$
 ^appveyor[.]yml$
-^covr-utils.R$
-^[.]coveralls[.]R$
 
 #----------------------------
 # R related
 #----------------------------
+Rplots.pdf$
 ^cran-comments[.].*$
 ^vignettes/.*[.](pdf|PDF)$
 ^vignettes/.*[.](r|R)$
@@ -27,7 +34,22 @@ README[.]md
 ^incl
 ^NAMESPACE,.*[.]txt$
 ^nohup.*$
+^[.]R
+^[.]benchmark
 ^[.]devel
 ^[.]test
 ^[.]check
 ^.*[.]tar[.]gz$
+
+#----------------------------
+# Package specific
+#----------------------------
+^[.]BatchJobs[.]R$
+[.]future
+
+#----------------------------
+# Miscellaneous
+#----------------------------
+^.ghi
+^.issues
+
