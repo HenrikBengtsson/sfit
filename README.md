@@ -6,7 +6,7 @@
 
 ## Installing
 
-The **sfit** package is _neither_ on CRAN nor on Bioconductor.  To install it, use:
+The **sfit** package is _neither_ on CRAN nor on Bioconductor.  To install it, it can be installed from [HenrikBengtsson's personal DRAT](https://github.com/HenrikBengtsson/drat) by calling:
 
 ```r
 install.packages("sfit", repos = "https://henrikbengtsson.github.io/drat")
