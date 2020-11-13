@@ -3,6 +3,17 @@
 
 # sfit: Multidimensional Simplex Fitting
 
+# Installing
+
+To install the **sfit** package, use:
+
+```r
+install.packages("sfit", repos = "https://henrikbengtsson.github.io/drat")
+```
+
+This should work on Linux and MS Windows.  On macOS, you need to have compiler tools installed.
+
+
 
 ## Installation
 R package sfit is only available via [GitHub](https://github.com/HenrikBengtsson/sfit) and can be installed in R as:
