@@ -15,7 +15,7 @@
 
 
 \description{
-  Methods for robustly fitting a K-dimensional simplex in M dimensions..
+  Methods for robustly fitting a K-dimensional simplex in M dimensions.
 }
 
 \section{Installation and updates}{

@@ -2,7 +2,7 @@
 # @RdocPackage sfit
 #
 # \description{
-#   @eval "packageDescription('sfit')$Description".
+#   @eval "packageDescription('sfit')$Description"
 # }
 #
 # \section{Installation and updates}{
