@@ -15,7 +15,7 @@
 
 
 \description{
-  This package provides a method for robustly fitting a K-dimensional simplex in M dimensions..
+  Methods for robustly fitting a K-dimensional simplex in M dimensions..
 }
 
 \section{Installation and updates}{
