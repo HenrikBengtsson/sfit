@@ -1,4 +1,4 @@
-# Version (development version)
+# Version 0.3.2 [2022-11-07]
 
 ## Bug Fixes
 
