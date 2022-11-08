@@ -5,6 +5,9 @@
  * Native code would try to read from file even where there was
    nothing to read.  This was caught by the `-Wunused-result` compiler
    option.
+   
+ * Native code had a non-guarded else clause, i.e. it was not
+   surrounded by `{ ... }`.
  
 
 # Version 0.3.1 [2017-03-22]
