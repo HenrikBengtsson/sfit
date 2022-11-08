@@ -14,6 +14,8 @@
  * Australia
  *
  * HISTORY:
+ * 2022-11-07
+ * o Fix non-guarded else clause.
  * 2006-05-16
  * o Updated to compile with gcc 4.0.2.
  *
@@ -424,14 +426,16 @@ int main( int argc, char *argv[] )
     if ( option_lubox )
       { c_v ( m, lb, p ); c_v ( m, ub, p + m ); }
     else
-      f = fopen ( "lubox", "r" );
-      if( !f )
-        {
-        fprintf(stderr,"please specify parameters for box constraints\n");
-        exit(1);
-        }
-      in_v ( f, 2 * m, p );
-      fclose(f);
+      {
+        f = fopen ( "lubox", "r" );
+        if( !f )
+          {
+          fprintf(stderr,"please specify parameters for box constraints\n");
+          exit(1);
+          }
+        in_v ( f, 2 * m, p );
+        fclose(f);
+      }
     }
 
   /* setup the initial simplex */
@@ -447,4 +451,3 @@ int main( int argc, char *argv[] )
 
   exit(0);
 }
-

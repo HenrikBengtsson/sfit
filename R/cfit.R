@@ -50,7 +50,7 @@
 #   such that \eqn{\sum_i x_{ik} = 1}.
 # }
 #
-# \examples{@include "..\incl\cfit.Rex"}
+# \examples{@include "../incl/cfit.Rex"}
 #
 # \author{
 #   Algorithm and C code/binary by Pratyaksha J. Wirapati.

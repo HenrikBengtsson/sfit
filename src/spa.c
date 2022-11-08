@@ -55,7 +55,9 @@ R** in_newA ( FILE *in, int *pn, int *pm )
   
   /* skip comments */
   while ( (chr=fgetc(in)) == '#' )
-    { fscanf(in,"%*[^\n]"); fgetc(in); }
+    {
+      if ( fscanf(in,"%*[^\n]") == 1 ) fgetc(in);
+    }
   ungetc(chr,in);
   
   while ( fscanf(in," %"Rg"%*[ \t\r]",&c) == 1 )
@@ -83,7 +85,9 @@ R** in_newA ( FILE *in, int *pn, int *pm )
       n++;
       j = 0;
       while ( (chr=fgetc(in)) == '#' )
-        { fscanf(in,"%*[^\n]"); fgetc(in); }
+        {
+          if ( fscanf(in,"%*[^\n]") == 1 ) fgetc(in);
+        }
       }
     ungetc(chr,in);
     }
