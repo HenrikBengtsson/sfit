@@ -106,7 +106,7 @@
 
 ## Deprecated and Defunct
 
- * Removed obsolete SaveImage from DESCRIPTION.
+ * Removed obsolete `SaveImage` from DESCRIPTION.
  
  
 # Version 0.1.7 [2008-08-31]
