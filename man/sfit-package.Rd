@@ -18,11 +18,6 @@
   Methods for robustly fitting a K-dimensional simplex in M dimensions.
 }
 
-\section{Installation and updates}{
-
-  To install this package, see \url{http://www.braju.com/R/}.
-}
-
 \section{To get started}{
   To get started, see:
   \enumerate{

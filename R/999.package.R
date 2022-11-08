@@ -5,11 +5,6 @@
 #   @eval "packageDescription('sfit')$Description"
 # }
 #
-# \section{Installation and updates}{
-#
-#   To install this package, see \url{http://www.braju.com/R/}.
-# }
-#
 # \section{To get started}{
 #   To get started, see:
 #   \enumerate{
