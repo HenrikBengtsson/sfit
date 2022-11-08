@@ -1,4 +1,5 @@
 <div id="badges"><!-- pkgdown markup -->
+<a href="https://henrikbengtsson.r-universe.dev"><img src="https://henrikbengtsson.r-universe.dev/badges/sfit" alt="sfit status badge"></a>
 <a href="https://github.com/HenrikBengtsson/sfit/actions?query=workflow%3AR-CMD-check"><img border="0" src="https://github.com/HenrikBengtsson/sfit/actions/workflows/R-CMD-check.yaml/badge.svg?branch=develop" alt="R CMD check status"/></a>
 <a href="https://app.codecov.io/gh/HenrikBengtsson/sfit"><img border="0" src="https://codecov.io/gh/HenrikBengtsson/sfit/branch/develop/graph/badge.svg" alt="Coverage Status"/></a> 
 </div>
